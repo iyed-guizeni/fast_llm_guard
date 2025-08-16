@@ -20,7 +20,6 @@ TRITON_URL = "http://localhost:8000/v2/models/fast_llm_guard/infer"
 base_model_name = "distilbert-base-uncased"
 tokenizer = AutoTokenizer.from_pretrained(base_model_name)
 
-
 class InferenceRequest(BaseModel):
     texts: Union[str, List[str]]
     @field_validator("texts")

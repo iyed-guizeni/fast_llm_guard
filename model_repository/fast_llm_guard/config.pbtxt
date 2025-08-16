@@ -1,0 +1,20 @@
+input [
+  {
+    name: "input_ids"
+    data_type: TYPE_INT64
+    dims: [ -1 ]  # <-- Only one -1 for sequence length
+  },
+  {
+    name: "attention_mask"
+    data_type: TYPE_INT64
+    dims: [ -1 ]
+  }
+]
+output [
+  {
+    name: "logits"
+    data_type: TYPE_FP32
+    dims: [ 2 ]  # or [num_classes]
+  }
+]
+max_batch_size: 32

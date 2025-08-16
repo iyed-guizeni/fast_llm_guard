@@ -1,0 +1,10 @@
+optimization/
+evaluation_results/
+checkpoints/
+src/
+fast_llm_guard.egg-info/
+results/
+app.log
+setup.py
+*.onnx
+.env

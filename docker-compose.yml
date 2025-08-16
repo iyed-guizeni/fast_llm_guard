@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  triton:
+    image: nvcr.io/nvidia/tritonserver:23.08-py3
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+    volumes:
+      - ./model_repository:/models
+    command: tritonserver --model-repository=/models
+
+  fastapi:
+    image: iyedg/fast-llm-guard:latest
+    ports:
+      - "9000:9000"
+    environment:
+      - TRITON_URL=http://triton:8000/v2/models/fast_llm_guard/infer
+    depends_on:
+      - triton
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./fast_llm_guard/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"

@@ -1,0 +1,8 @@
+fastapi
+httpx
+numpy
+pydantic
+transformers
+prometheus_client
+prometheus-fastapi-instrumentator
+uvicorn

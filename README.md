@@ -1,7 +1,7 @@
-
 # Fast LLM Guard
 
 ## Overview
+
 Fast LLM Guard is a scalable, production-ready NLP inference platform with distributed training, optimization, and real-time monitoring.
 
 ---
@@ -51,7 +51,8 @@ docker-compose up --build
 ```
 
 This will start:
-- Triton Inference Server (serving your ONNX model)
+
+- Triton Inference Server (serving the ONNX model)
 - FastAPI (NLP API)
 - Prometheus (metrics)
 - Grafana (monitoring dashboards)
